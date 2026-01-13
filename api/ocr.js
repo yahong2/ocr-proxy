@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     }
 
     const response = await fetch(
-      "https://clovaocr-api.ncloud.com/ocr/v1/general",
+      "https://2b3hwshmqc.apigw.ntruss.com/custom/v1/49397/6b4d717ef1f41b29d55628607d9efef197289d47a2dae31b6a191a3f518381cd/general",
       {
         method: "POST",
         headers: {
