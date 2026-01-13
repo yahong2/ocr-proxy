@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     }
 
     const response = await fetch(
-       "https://clovaocr-api.ncloud.com/ocr/v1/	allerjo",process.env.CLOVA_OCR_INVOKE_URL,
+       "https://clovaocr-api.ncloud.com/ocr/v1/allerjo",process.env.CLOVA_OCR_INVOKE_URL,
       {
         method: "POST",
         headers: {
