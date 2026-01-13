@@ -9,24 +9,29 @@ export default async function handler(req, res) {
     if (!imageBase64) {
       return res.status(400).json({ error: "imageBase64 is required" });
     }
-
     const response = await fetch(
-       "https://clovaocr-api.ncloud.com/ocr/v1/allerjo",process.env.CLOVA_OCR_INVOKE_URL,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-OCR-SECRET": process.env.CLOVA_OCR_SECRET
-        },
-        body: JSON.stringify({
-          version: "V1",
-          requestId: Date.now().toString(),
-          timestamp: Date.now(),
-          images: [
-            {
-              format: "jpg",
-              name: "menu",
-              data: imageBase64
+  "https://clovaocr-api.ncloud.com/ocr/v1/allerjo",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-OCR-SECRET": process.env.CLOVA_OCR_SECRET
+    },
+    body: JSON.stringify({
+      version: "V2",
+      requestId: "test-id",
+      timestamp: Date.now(),
+      images: [
+        {
+          format: "png",
+          name: "test",
+          data: imageBase64
+        }
+      ]
+    })
+  }
+);
+
             }
           ]
         })
