@@ -32,3 +32,27 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify({
           version: "V2",
+          requestId: "test",
+          timestamp: Date.now(),
+          images: [
+            {
+              format: "png",
+              name: "test",
+              data: imageBase64
+            }
+          ]
+        })
+      }
+    );
+
+    const result = await response.json();
+    return res.status(200).json(result);
+
+  } catch (error) {
+    console.error("OCR ERROR:", error);
+    return res.status(500).json({
+      error: "OCR server error",
+      detail: error.message
+    });
+  }
+}
